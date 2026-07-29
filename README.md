@@ -2,23 +2,19 @@
 
 **Personal Asset & Lifecycle Management Platform**
 
-PALM grew from a simple observation.
+PALM started with two hobbies.
 
-Keeping track of plants, organising a workshop and managing hobby collections all turn out to be the same problem. They all involve physical things that have an identity, a place and a story.
+Growing plants and organising a workshop.
 
-PALM is an attempt to solve that problem with one simple platform.
+The more we talked about them, the more it became obvious they weren't two problems at all. They were the same problem.
 
-The first applications are:
+PALM is our attempt to solve that problem.
 
-- Garden and greenhouse plant lifecycle management.
-- Workshop and hobby asset management.
-
-At the heart of PALM are just a few ideas.
+At the heart of PALM are two simple ideas.
 
 - Everything we manage is an asset.
-- Assets have identities and relationships.
 - Things happen to assets throughout their lives. Those are events.
 
-This repository is where the architecture, ideas and implementation of PALM will evolve together.
+Everything else grows naturally from those ideas.
 
-The aim is to keep the design simple, practical and enjoyable to use, while allowing the platform to grow naturally into new application areas over time.
+This repository contains the architecture, specifications, documentation and implementation of PALM as it evolves.
