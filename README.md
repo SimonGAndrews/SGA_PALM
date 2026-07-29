@@ -2,19 +2,23 @@
 
 **Personal Asset & Lifecycle Management Platform**
 
-PALM is an open-source project to develop a simple, extensible platform for identifying, tracking and managing the lifecycle of physical assets.
+PALM grew from a simple observation.
 
-The initial focus is personal and family use, with two primary application domains:
+Keeping track of plants, organising a workshop and managing hobby collections all turn out to be the same problem. They all involve physical things that have an identity, a place and a story.
 
-- Garden and greenhouse management (plants, seedlings, cuttings, pots, trays and locations).
-- Hobby and workshop asset management (electronic components, tools, storage boxes, shelves and other equipment).
+PALM is an attempt to solve that problem with one simple platform.
 
-The platform is built around a small set of core concepts:
+The first applications are:
 
-- Assets have identities.
-- Assets have relationships.
-- Events record lifecycle.
+- Garden and greenhouse plant lifecycle management.
+- Workshop and hobby asset management.
 
-The aim is to create a generic platform rather than separate applications for each domain. New domains should be supported by extending the model rather than redesigning it.
+At the heart of PALM are just a few ideas.
 
-This repository will contain the evolving architecture, specifications, documentation and implementation of PALM.
+- Everything we manage is an asset.
+- Assets have identities and relationships.
+- Things happen to assets throughout their lives. Those are events.
+
+This repository is where the architecture, ideas and implementation of PALM will evolve together.
+
+The aim is to keep the design simple, practical and enjoyable to use, while allowing the platform to grow naturally into new application areas over time.
