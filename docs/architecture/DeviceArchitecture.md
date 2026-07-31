@@ -83,6 +83,8 @@ This allows PALM to:
 
 A barcode wand may be allowed to place and move assets but not delete them or change system settings.
 
+The first implementation still needs to choose a credential mechanism. Device secrets, signed tokens, and client certificates are candidates. Embedded devices must not contain privileged database or general cloud credentials.
+
 ## Barcode content
 
 A barcode should normally contain a stable PALM identifier, not changeable details such as plant name, location or year.
@@ -95,14 +97,14 @@ PALM owns the label request and label content. A printer adapter handles the phy
 
 ```text
 PALM service
-    │
-    ▼
+    |
+    v
 Print job
-    │
-    ▼
+    |
+    v
 Local printer adapter or device
-    │
-    ▼
+    |
+    v
 Zebra printer
 ```
 
@@ -115,7 +117,7 @@ Possible adapters include:
 - an Espruino or ESP32 device connected to a printer with a suitable UART interface
 - a network-connected Zebra printer
 
-For Zebra printers, the adapter can send ZPL generated from the PALM print job.
+For Zebra printers, the adapter can send ZPL generated from the PALM print job. The current preference is for PALM to select the template and generate the label content centrally, while the adapter owns transport and physical output. The exact ZPL boundary still needs testing against device constraints.
 
 A USB-only printer cannot normally be driven from a UART without extra USB-host hardware, so the physical printer interface must be checked before choosing the adapter.
 

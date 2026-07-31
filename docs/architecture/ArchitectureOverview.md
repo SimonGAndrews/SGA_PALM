@@ -26,22 +26,24 @@ The system must work for ordinary family use while also supporting small purpose
 ```text
 Browser, phone or tablet
 Espruino and other device clients
-            │
-            │ HTTP and JSON
-            ▼
+            |
+            | HTTP and JSON
+            v
         PALM service
-            │
-            ├── assets and relationships
-            ├── lifecycle transactions
-            ├── event history
-            ├── labels and print jobs
-            └── users and devices
-            │
-            ▼
+            |
+            |- assets and relationships
+            |- lifecycle transactions
+            |- event history
+            |- labels and print jobs
+            `- users and devices
+            |
+            v
      Relational database
 ```
 
 The first implementation should be one application service with one relational database. Clear internal modules are useful; separate microservices are not needed.
+
+PostgreSQL is the current choice for the authoritative relational store. The planned Google deployment keeps the service and database boundaries explicit so that the core PALM model is not tied to a particular hosting product.
 
 ## Current state and history
 
@@ -79,7 +81,9 @@ Examples:
 - consume a component
 - print a label
 
-The service owns the rules and records the matching events.
+The service owns the rules and records the corresponding events.
+
+Endpoints should be organised around these business operations and the PALM areas that own them, rather than exposing general database CRUD operations. The detailed endpoint grouping can be set when the API specification is written.
 
 ## Deployment
 

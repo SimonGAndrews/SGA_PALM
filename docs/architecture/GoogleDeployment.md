@@ -4,7 +4,7 @@ PALM is expected to use Google-hosted services for the shared application servic
 
 The first deployment should stay simple and fit within free or low-cost service levels while PALM is being developed and used by one family.
 
-The exact Google products are still working choices. The architecture should not depend too heavily on one product until the pricing, limits and development workflow have been tested.
+The initial deployment baseline is Firebase Hosting for the Angular PWA, Firebase Authentication for family users, Cloud Run for the PALM service, and Cloud SQL for PostgreSQL. These remain working choices until pricing, limits, and the development workflow have been tested.
 
 ## Working shape
 
@@ -20,18 +20,19 @@ Google-hosted PALM service
 Hosted relational database
 ```
 
-The PALM service owns assets, events, relationships, validation and transactions. Clients do not connect directly to the database.
+The PALM service owns assets, events, relationships, validation, and transactions. Clients do not connect directly to the database.
 
 ## Current Google options
 
-The likely building blocks are:
+The initial building blocks are:
 
-- static hosting for the Angular application
-- a hosted HTTPS endpoint for the PALM service
-- a managed PostgreSQL database
-- authentication for family users and registered devices
+- Firebase Hosting for the Angular PWA
+- Firebase Authentication for family users
+- Cloud Run for the hosted HTTPS PALM service
+- Cloud SQL for the managed PostgreSQL database
+- PALM-issued identities and credentials for registered devices
 
-Firebase Hosting, Cloud Run, Firebase Data Connect and Cloud SQL are all relevant options. The final combination will be chosen after a small working deployment has been tested.
+Firebase Data Connect may be evaluated as a managed PostgreSQL access layer. It must not allow browser or device clients to bypass the PALM service for operations governed by PALM business rules. The final combination will be confirmed after a small working deployment has been tested.
 
 ## One service first
 
@@ -58,7 +59,7 @@ POST /api/transactions/place-asset
 }
 ```
 
-The service validates the request, changes current state and records the event in one transaction.
+The service validates the request, changes current state, and records the event in the same transaction.
 
 Device endpoints should use short requests, clear responses and retry-safe operations.
 
@@ -98,3 +99,5 @@ The first deployment should be designed for light family use:
 Cost limits, backups, database export and service monitoring will need to be checked during the first deployment trial.
 
 The aim is not to design for large scale now. It is to keep a clean route to grow without making the first version difficult to run.
+
+Cloud SQL is expected to be the main recurring infrastructure cost. Early deployment work should verify that the complete baseline remains suitable for long-term, low-volume family use rather than relying only on prototype or free-tier allowances.
